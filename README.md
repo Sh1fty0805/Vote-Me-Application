@@ -1,5 +1,11 @@
-# GroupSProject
+**GroupSProject**
 
 # VOTESMART APPLICATION
 
-**Features
+**Features**
+-- Candidate Background Check -- 
+-- Precinct & Voting Information --
+-- Voter Eligibility Checker -- 
+-- Notifications & reminders -- 
+-- Security & Privacy -- 
+
