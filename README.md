@@ -1,3 +1,5 @@
 # GroupSProject
 
 # VOTESMART APPLICATION
+
+**Features
