@@ -1,0 +1,6 @@
+<h2>{{ object.name }}</h2>
+<p><strong>Position:</strong> {{ object.position }}</p>
+<p><strong>Platform:</strong> {{ object.platform }}</p>
+<a href="{% url 'candidate-update' object.pk %}">Edit</a>
+<a href="{% url 'candidate-delete' object.pk %}">Delete</a>
+<a href="{% url 'candidate-list' %}">Back</a>
