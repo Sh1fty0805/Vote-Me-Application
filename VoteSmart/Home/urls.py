@@ -7,4 +7,10 @@ urlpatterns = [
     path('candidate/create/', views.CandidateCreateView.as_view(), name='candidate-create'),
     path('candidate/<int:pk>/update/', views.CandidateUpdateView.as_view(), name='candidate-update'),
     path('candidate/<int:pk>/delete/', views.CandidateDeleteView.as_view(), name='candidate-delete'),
+
+
+     # Auth
+    path('signup/', views.signup_view, name='signup'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
 ]
