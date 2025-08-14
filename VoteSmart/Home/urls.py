@@ -2,13 +2,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.CandidateListView.as_view(), name='candidate-list'),
-    path('candidate/<int:pk>/', views.CandidateDetailView.as_view(), name='candidate-detail'),
-    path('candidate/create/', views.CandidateCreateView.as_view(), name='candidate-create'),
-    path('candidate/<int:pk>/update/', views.CandidateUpdateView.as_view(), name='candidate-update'),
-    path('candidate/<int:pk>/delete/', views.CandidateDeleteView.as_view(), name='candidate-delete'),
 
-
+    # New 4-page setup
+    path('', views.landing_view, name='landing'),  # Landing page is now root
+    path('home/', views.home_view, name='home'),
+    path('candidates/', views.candidates_view, name='candidates'),
+    path('profile/', views.profile_view, name='profile'),
+    
      # Auth
     path('signup/', views.signup_view, name='signup'),
     path('login/', views.login_view, name='login'),

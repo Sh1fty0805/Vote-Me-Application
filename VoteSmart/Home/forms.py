@@ -4,15 +4,19 @@ from django.contrib.auth.models import User
 from .models import UserProfile
 
 class SignUpForm(UserCreationForm):
+    full_name = forms.CharField(max_length=255)
     birthdate = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    sex = forms.ChoiceField(choices=UserProfile.SEX_CHOICES)
+    city = forms.ChoiceField(choices=UserProfile.CITY_CHOICES)
     address = forms.CharField(max_length=255)
-    citizenship = forms.CharField(max_length=50)
-    is_registered_voter = forms.BooleanField(required=False)
+    email = forms.EmailField(required=False, label="Email (optional, for newsletters)")
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2', 
-                  'birthdate', 'address', 'citizenship', 'is_registered_voter']
+        fields = [
+            'username', 'password1', 'password2',
+            'full_name', 'birthdate', 'sex', 'city', 'address', 'email'
+        ]
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -20,9 +24,11 @@ class SignUpForm(UserCreationForm):
             user.save()
             UserProfile.objects.create(
                 user=user,
+                full_name=self.cleaned_data['full_name'],
                 birthdate=self.cleaned_data['birthdate'],
+                sex=self.cleaned_data['sex'],
+                city=self.cleaned_data['city'],
                 address=self.cleaned_data['address'],
-                citizenship=self.cleaned_data['citizenship'],
-                is_registered_voter=self.cleaned_data['is_registered_voter']
+                email=self.cleaned_data['email']
             )
         return user
