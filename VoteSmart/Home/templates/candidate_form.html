@@ -1,7 +1,0 @@
-<h2>{{ view.object.pk|yesno:"Edit Candidate,Add Candidate" }}</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Save</button>
-</form>
-<a href="{% url 'candidate-list' %}">Cancel</a>

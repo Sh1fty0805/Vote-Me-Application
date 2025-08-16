@@ -1,8 +1,0 @@
-<h2>Candidates</h2>
-<ul>
-  {% for candidate in object_list %}
-    <li>
-      <a href="{% url 'candidate-detail' candidate.pk %}">{{ candidate.name }}</a>
-    </li>
-  {% endfor %}
-</ul>
